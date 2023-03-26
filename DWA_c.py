@@ -141,6 +141,13 @@ class DWA:
 
         # Calculate stagnation cost
         stagnation_cost = self.config["stagnation_weight"] * self.stagnation_counter
+
+        goal_distance_cost = goal_distance_cost + 1e-7
+        goal_heading_cost = goal_heading_cost + 1e-7
+        speed_cost = speed_cost + 1e-7
+        height_d_cost = height_d_cost + 1e-7
+        stagnation_cost = stagnation_cost + 1e-7
+
         cost = goal_heading_cost + goal_distance_cost + speed_cost + height_d_cost + stagnation_cost
         # print('height_d_cost / cost', height_d_cost / (cost + 1e-6))
         # 计算每个cost的占比
